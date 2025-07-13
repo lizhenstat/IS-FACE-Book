@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${fileDirname}",
+            "justMyCode": true,
+            "env": {"CUDA_VISIBLE_DEVICES": "0"}, 
+            "args":["--RFW_race","Caucasian",
+                    "--max_epoch", "27",
+                    "--lr","0.1",
+                    "--clip_grad_norm",
+                    "--train_batch_size", "128",
+                    "--backbone","r34",
+                    "--metric", "arc_margin", 
+                    "--arc_m", "0.5"]
+        }
+    ]
+}
