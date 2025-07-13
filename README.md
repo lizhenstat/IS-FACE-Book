@@ -1,4 +1,6 @@
 
+本项目为统计教材中关于人脸认证任务提供完整的配套代码，基于 InsightFace 框架进行简化改写。项目支持对 RFW（Racial Faces in the Wild） 数据集的训练与测试，用于评估人脸识别模型在不同种族群体下的表现。
+
 ## 📁 项目结构
 ```
 IS-FACE-Book/
@@ -16,13 +18,25 @@ IS-FACE-Book/
 │   └── RFW_get_label_race.py         # 构建 label → race 映射字典，用于种族划分
 ```
 
+## 📊 数据
 
-## 数据
+本项目使用的数据集为 RFW（Racial Faces in the Wild） 数据集。  
+数据集介绍与下载请参考其 [官方网站](http://whdeng.cn/RFW/testing.html)。  
+如需引用该数据集，请参考以下论文：
 
+> Mei Wang, Weihong Deng, Jiani Hu, Xunqiang Tao, Yaohai Huang.  
+> *Racial Faces in the Wild: Reducing Racial Bias by Information Maximization Adaptation Network*.  
+> ICCV 2019.
 
-## 命令行
-`python train_insightface_book.py --RFW_race Caucasian --lr 0.1 --max_epoch 27  \
---clip_grad_norm --train_batch_size 128 --backbone r34 --metric arc_margin --arc_m 0.5`
+## 🖥️ 命令行
+
+以下命令用于在 Caucasian 子集上训练 ArcFace 模型：
+
+```bash
+python train_insightface_book.py --RFW_race Caucasian --lr 0.1 --max_epoch 27 \
+--clip_grad_norm --train_batch_size 128 --backbone r34 --metric arc_margin --arc_m 0.5
+```
+
 
 ## 📜 License
 
